@@ -32,5 +32,6 @@
   "resetSessions": "Reset Sessions",
   "selectTheme": "Theme",
   "selectLang": "Language",
+  "focusMode": "Focus Mode",
   "quit": "Quit"
 }

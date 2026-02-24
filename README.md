@@ -96,6 +96,7 @@ Hooks are registered automatically when the app starts — no manual configurati
 4. **Right-click** to open the context menu:
    - Language — switch between available languages
    - Theme — switch between built-in themes
+   - Focus Mode — only react to completion, errors, and notifications
    - Reset Sessions
    - Quit
 
@@ -106,6 +107,7 @@ Hooks are registered automatically when the app starts — no manual configurati
 - **Pixel font** — [NeoDungGeunMo](https://github.com/neodgm/neodgm) for a retro look
 - **Themes** — 6 built-in themes (Default, Cat, Space, Ocean, Garden, Fruits) with customizable colors and fonts
 - **Multilingual** — English and Korean out of the box, easily extensible
+- **Focus Mode** — hides routine tool calls, only reacts to completion/errors/notifications
 - **Multi-session** — tracks multiple Claude Code instances simultaneously
 - **10 animations** — each tool type gets its own CSS animation
 - **Cross-platform** — builds on Windows, macOS, and Linux

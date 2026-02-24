@@ -96,6 +96,7 @@ npm run build
 4. **우클릭**으로 컨텍스트 메뉴:
    - 언어 — 사용 가능한 언어 간 전환
    - 테마 — 내장 테마 간 전환
+   - 집중 모드 — 완료/에러/알림에만 반응
    - 세션 초기화
    - 종료
 
@@ -106,6 +107,7 @@ npm run build
 - **픽셀 폰트** — [NeoDungGeunMo](https://github.com/neodgm/neodgm)로 레트로 감성
 - **테마** — 6개 내장 테마 (Default, Cat, Space, Ocean, Garden, Fruits) + 커스텀 색상/폰트
 - **다국어** — 영어/한국어 기본 제공, 쉽게 확장 가능
+- **집중 모드** — 일반 도구 호출은 숨기고 완료/에러/알림에만 반응
 - **멀티세션** — 여러 Claude Code 인스턴스 동시 추적
 - **10가지 애니메이션** — 도구 종류별 CSS 애니메이션
 - **크로스 플랫폼** — Windows, macOS, Linux 빌드 가능

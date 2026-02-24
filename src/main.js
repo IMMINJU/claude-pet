@@ -1,5 +1,5 @@
 import { t, getLang, setLang, getAvailableLangs, updateMenuLabels, initI18n } from "./i18n.js";
-import { handleEvent, cleanupSessions, refreshDisplay, resetSessions } from "./sessions.js";
+import { handleEvent, cleanupSessions, refreshDisplay, resetSessions, isQuietMode, setQuietMode } from "./sessions.js";
 import { initThemes, setTheme, getThemes, getCurrentThemeId } from "./themes.js";
 
 // ── Tauri Event Listener ─────────────────────────────
@@ -81,6 +81,18 @@ document.addEventListener("contextmenu", async (e) => {
       });
     }
 
+    const quietPrefix = isQuietMode() ? "* " : "  ";
+    const quietItem = await MenuItem.new({
+      id: "quiet-mode",
+      text: `${quietPrefix}${t("focusMode")}`,
+      action: () => {
+        setQuietMode(!isQuietMode());
+        if (isQuietMode()) {
+          resetSessions();
+        }
+      },
+    });
+
     const resetItem = await MenuItem.new({
       id: "reset-sessions",
       text: t("resetSessions"),
@@ -106,7 +118,7 @@ document.addEventListener("contextmenu", async (e) => {
 
     const items = [langMenu];
     if (themeMenu) items.push(themeMenu);
-    items.push(resetItem, separator, quitItem);
+    items.push(quietItem, resetItem, separator, quitItem);
 
     const menu = await Menu.new({ items });
     await menu.popup();

@@ -10,6 +10,13 @@ import { getCharacterForState } from "./themes.js";
 let sessions = {};
 let labelIndex = 0;
 let transientTimers = {};
+let quietMode = localStorage.getItem("claude-pet-quiet") === "true";
+
+export function isQuietMode() { return quietMode; }
+export function setQuietMode(val) {
+  quietMode = val;
+  localStorage.setItem("claude-pet-quiet", String(val));
+}
 
 // ── DOM Refs ─────────────────────────────────────────
 const emojiEl = document.getElementById("emoji");
@@ -50,6 +57,14 @@ export function handleEvent(event) {
   const sessionId = event.session_id || "unknown";
   const hookEvent = event.hook_event_name || "";
   const newState = stateForEvent(event);
+
+  // Quiet mode: only react to Stop, Notification, and errors
+  if (quietMode && hookEvent === "PreToolUse") return;
+  if (quietMode && hookEvent === "PostToolUse") {
+    const resp = event.tool_response;
+    const isError = resp && typeof resp === "object" && resp.success === false;
+    if (!isError) return;
+  }
 
   const session = getOrCreateSession(sessionId);
   session.state = newState;

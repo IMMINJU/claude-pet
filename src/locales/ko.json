@@ -32,5 +32,6 @@
   "resetSessions": "세션 초기화",
   "selectTheme": "테마",
   "selectLang": "언어",
+  "focusMode": "집중 모드",
   "quit": "종료"
 }
