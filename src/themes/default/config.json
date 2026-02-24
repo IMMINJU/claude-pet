@@ -1,0 +1,18 @@
+{
+  "name": "Default (Emoji)",
+  "type": "emoji",
+  "states": {
+    "idle":         { "emoji": "🤖" },
+    "read":         { "emoji": "📖" },
+    "write":        { "emoji": "✍️" },
+    "bash":         { "emoji": "⚡" },
+    "search":       { "emoji": "🔍" },
+    "task":         { "emoji": "🤖" },
+    "web":          { "emoji": "🌐" },
+    "success":      { "emoji": "✅" },
+    "error":        { "emoji": "😰" },
+    "notification": { "emoji": "🙋" },
+    "stop":         { "emoji": "😴" },
+    "unknown":      { "emoji": "🔧" }
+  }
+}

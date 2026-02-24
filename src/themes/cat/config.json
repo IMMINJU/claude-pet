@@ -1,0 +1,24 @@
+{
+  "name": "Cat",
+  "type": "emoji",
+  "colors": {
+    "bgStart": "#1e1228",
+    "bgEnd": "#140a1e",
+    "accent": "200, 140, 220",
+    "text": "#e8c8f0"
+  },
+  "states": {
+    "idle":         { "emoji": "🐱" },
+    "read":         { "emoji": "😺" },
+    "write":        { "emoji": "😼" },
+    "bash":         { "emoji": "🙀" },
+    "search":       { "emoji": "😾" },
+    "task":         { "emoji": "😸" },
+    "web":          { "emoji": "😽" },
+    "success":      { "emoji": "😻" },
+    "error":        { "emoji": "🙀" },
+    "notification": { "emoji": "😿" },
+    "stop":         { "emoji": "😴" },
+    "unknown":      { "emoji": "🐾" }
+  }
+}

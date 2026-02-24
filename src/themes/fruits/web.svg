@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Blueberry body -->
+  <circle cx="40" cy="46" r="22" fill="#4a3470"/>
+  <defs>
+    <radialGradient id="blueShine" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="40" cy="46" r="22" fill="url(#blueShine)"/>
+  <!-- Crown -->
+  <polygon points="33,25 36,28 38,24 40,28 42,24 44,28 47,25" fill="#5b4a8a"/>
+  <!-- Eyes -->
+  <ellipse cx="33" cy="44" rx="3" ry="3" fill="white"/>
+  <ellipse cx="34" cy="44.5" rx="1.5" ry="2" fill="#2d3436"/>
+  <circle cx="35" cy="43.5" r="0.8" fill="white"/>
+  <ellipse cx="47" cy="44" rx="3" ry="3" fill="white"/>
+  <ellipse cx="48" cy="44.5" rx="1.5" ry="2" fill="#2d3436"/>
+  <circle cx="49" cy="43.5" r="0.8" fill="white"/>
+  <!-- Mouth -->
+  <path d="M36 52 Q40 55 44 52" stroke="#2d3436" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <circle cx="27" cy="50" r="3" fill="#6c5b9e" opacity="0.5"/>
+  <circle cx="53" cy="50" r="3" fill="#6c5b9e" opacity="0.5"/>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Watermelon slice -->
+  <path d="M10 50 A35 35 0 0 1 70 50 Z" fill="#27ae60"/>
+  <path d="M13 50 A32 32 0 0 1 67 50 Z" fill="#e74c3c"/>
+  <defs>
+    <radialGradient id="melonShine" cx="50%" cy="80%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M13 50 A32 32 0 0 1 67 50 Z" fill="url(#melonShine)"/>
+  <!-- Seeds -->
+  <ellipse cx="30" cy="42" rx="2" ry="3" fill="#2d3436" transform="rotate(-15 30 42)"/>
+  <ellipse cx="50" cy="42" rx="2" ry="3" fill="#2d3436" transform="rotate(15 50 42)"/>
+  <ellipse cx="40" cy="38" rx="2" ry="3" fill="#2d3436"/>
+  <ellipse cx="35" cy="46" rx="1.5" ry="2.5" fill="#2d3436" transform="rotate(-10 35 46)"/>
+  <ellipse cx="45" cy="46" rx="1.5" ry="2.5" fill="#2d3436" transform="rotate(10 45 46)"/>
+  <!-- Happy eyes (^  ^) -->
+  <path d="M28 33 Q32 28 36 33" stroke="#2d3436" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M44 33 Q48 28 52 33" stroke="#2d3436" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Big smile -->
+  <path d="M32 38 Q40 46 48 38" stroke="#2d3436" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Sparkles -->
+  <line x1="18" y1="22" x2="16" y2="16" stroke="#f1c40f" stroke-width="2" stroke-linecap="round"/>
+  <line x1="62" y1="22" x2="64" y2="16" stroke="#f1c40f" stroke-width="2" stroke-linecap="round"/>
+  <line x1="14" y1="26" x2="10" y2="24" stroke="#f1c40f" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="66" y1="26" x2="70" y2="24" stroke="#f1c40f" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

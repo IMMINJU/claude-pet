@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Cherry stem -->
+  <path d="M30 30 Q35 10 50 15" stroke="#6d4c1d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M50 30 Q50 12 55 10" stroke="#6d4c1d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="52" cy="12" rx="5" ry="3" fill="#27ae60" transform="rotate(-10 52 12)"/>
+  <!-- Left cherry -->
+  <circle cx="30" cy="48" r="16" fill="#c0392b"/>
+  <defs>
+    <radialGradient id="cherryShine" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="30" cy="48" r="16" fill="url(#cherryShine)"/>
+  <!-- Right cherry -->
+  <circle cx="54" cy="48" r="14" fill="#e74c3c"/>
+  <circle cx="54" cy="48" r="14" fill="url(#cherryShine)"/>
+  <!-- Left eye (big, searching) -->
+  <ellipse cx="26" cy="46" rx="5" ry="5" fill="white"/>
+  <ellipse cx="24" cy="46" rx="2" ry="2.5" fill="#2d3436"/>
+  <circle cx="25" cy="45" r="1" fill="white"/>
+  <!-- Right eye (small) -->
+  <ellipse cx="34" cy="46" rx="3" ry="3.5" fill="white"/>
+  <ellipse cx="33" cy="47" rx="1.5" ry="2" fill="#2d3436"/>
+  <!-- Small face on right cherry -->
+  <circle cx="51" cy="46" r="1.5" fill="#2d3436"/>
+  <circle cx="57" cy="46" r="1.5" fill="#2d3436"/>
+  <path d="M51 51 Q54 53 57 51" stroke="#2d3436" stroke-width="1" fill="none"/>
+</svg>

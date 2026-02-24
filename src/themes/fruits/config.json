@@ -1,0 +1,23 @@
+{
+  "name": "Fruits",
+  "type": "image",
+  "colors": {
+    "bgStart": "#1a0e0a",
+    "bgEnd": "#120806",
+    "accent": "243, 156, 18",
+    "text": "#ffeaa7"
+  },
+  "states": {
+    "idle":         { "src": "idle.svg" },
+    "read":         { "src": "read.svg" },
+    "write":        { "src": "write.svg" },
+    "bash":         { "src": "bash.svg" },
+    "search":       { "src": "search.svg" },
+    "task":         { "src": "task.svg" },
+    "web":          { "src": "web.svg" },
+    "success":      { "src": "success.svg" },
+    "error":        { "src": "error.svg" },
+    "notification": { "src": "notification.svg" },
+    "stop":         { "src": "stop.svg" }
+  }
+}

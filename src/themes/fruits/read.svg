@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Grape cluster -->
+  <circle cx="32" cy="38" r="9" fill="#8e44ad"/>
+  <circle cx="48" cy="38" r="9" fill="#8e44ad"/>
+  <circle cx="40" cy="36" r="9" fill="#9b59b6"/>
+  <circle cx="34" cy="50" r="9" fill="#8e44ad"/>
+  <circle cx="46" cy="50" r="9" fill="#8e44ad"/>
+  <circle cx="40" cy="48" r="9" fill="#9b59b6"/>
+  <circle cx="40" cy="60" r="9" fill="#8e44ad"/>
+  <!-- Stem -->
+  <path d="M40 27 Q42 20 40 14" stroke="#6d4c1d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="45" cy="17" rx="6" ry="3.5" fill="#27ae60" transform="rotate(15 45 17)"/>
+  <!-- Eyes (looking down, reading) -->
+  <ellipse cx="34" cy="46" rx="2.5" ry="1.5" fill="white"/>
+  <ellipse cx="34" cy="47" rx="1.5" ry="1" fill="#2d3436"/>
+  <ellipse cx="46" cy="46" rx="2.5" ry="1.5" fill="white"/>
+  <ellipse cx="46" cy="47" rx="1.5" ry="1" fill="#2d3436"/>
+  <!-- Mouth -->
+  <path d="M37 53 Q40 55 43 53" stroke="#2d3436" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>

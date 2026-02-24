@@ -1,0 +1,24 @@
+{
+  "name": "Space",
+  "type": "emoji",
+  "colors": {
+    "bgStart": "#0a1628",
+    "bgEnd": "#060e1e",
+    "accent": "100, 180, 255",
+    "text": "#b0d4ff"
+  },
+  "states": {
+    "idle":         { "emoji": "🚀" },
+    "read":         { "emoji": "🔭" },
+    "write":        { "emoji": "🛸" },
+    "bash":         { "emoji": "⚡" },
+    "search":       { "emoji": "🌌" },
+    "task":         { "emoji": "👾" },
+    "web":          { "emoji": "🛰️" },
+    "success":      { "emoji": "⭐" },
+    "error":        { "emoji": "☄️" },
+    "notification": { "emoji": "🌕" },
+    "stop":         { "emoji": "🌙" },
+    "unknown":      { "emoji": "🪐" }
+  }
+}

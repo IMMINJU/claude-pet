@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Peach body -->
+  <ellipse cx="40" cy="46" rx="24" ry="23" fill="#fab1a0"/>
+  <defs>
+    <radialGradient id="peachShine" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="40" cy="46" rx="24" ry="23" fill="url(#peachShine)"/>
+  <!-- Peach crease -->
+  <path d="M40 26 Q38 46 40 68" stroke="#e17055" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <!-- Stem -->
+  <path d="M40 23 Q42 17 41 13" stroke="#6d4c1d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="46" cy="16" rx="6" ry="3" fill="#27ae60" transform="rotate(15 46 16)"/>
+  <!-- Eyes (wide, alert) -->
+  <ellipse cx="32" cy="43" rx="4" ry="5" fill="white"/>
+  <ellipse cx="33" cy="43" rx="2" ry="3" fill="#2d3436"/>
+  <circle cx="34" cy="41.5" r="1" fill="white"/>
+  <ellipse cx="48" cy="43" rx="4" ry="5" fill="white"/>
+  <ellipse cx="49" cy="43" rx="2" ry="3" fill="#2d3436"/>
+  <circle cx="50" cy="41.5" r="1" fill="white"/>
+  <!-- Mouth (surprised O) -->
+  <ellipse cx="40" cy="55" rx="4" ry="4" fill="#2d3436"/>
+  <!-- Exclamation mark -->
+  <rect x="58" y="22" width="4" height="12" rx="2" fill="#e74c3c"/>
+  <circle cx="60" cy="38" r="2" fill="#e74c3c"/>
+</svg>

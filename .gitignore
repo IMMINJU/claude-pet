@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Rust / Tauri build
+src-tauri/target/
+src-tauri/gen/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Capture frames (generated)
+assets/gif-frames/

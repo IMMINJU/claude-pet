@@ -1,0 +1,24 @@
+{
+  "name": "Ocean",
+  "type": "emoji",
+  "colors": {
+    "bgStart": "#0a1e2e",
+    "bgEnd": "#061420",
+    "accent": "80, 200, 180",
+    "text": "#b0f0e0"
+  },
+  "states": {
+    "idle":         { "emoji": "🐙" },
+    "read":         { "emoji": "🐠" },
+    "write":        { "emoji": "🦑" },
+    "bash":         { "emoji": "⚡" },
+    "search":       { "emoji": "🔍" },
+    "task":         { "emoji": "🐬" },
+    "web":          { "emoji": "🌊" },
+    "success":      { "emoji": "🐚" },
+    "error":        { "emoji": "🦀" },
+    "notification": { "emoji": "🐡" },
+    "stop":         { "emoji": "🐋" },
+    "unknown":      { "emoji": "🪸" }
+  }
+}

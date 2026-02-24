@@ -1,0 +1,24 @@
+{
+  "name": "Garden",
+  "type": "emoji",
+  "colors": {
+    "bgStart": "#0e1e0a",
+    "bgEnd": "#081406",
+    "accent": "120, 200, 80",
+    "text": "#c8f0a8"
+  },
+  "states": {
+    "idle":         { "emoji": "🌱" },
+    "read":         { "emoji": "🌿" },
+    "write":        { "emoji": "🌻" },
+    "bash":         { "emoji": "⚡" },
+    "search":       { "emoji": "🍃" },
+    "task":         { "emoji": "🐝" },
+    "web":          { "emoji": "🕸️" },
+    "success":      { "emoji": "🌸" },
+    "error":        { "emoji": "🥀" },
+    "notification": { "emoji": "🍄" },
+    "stop":         { "emoji": "🌾" },
+    "unknown":      { "emoji": "🌰" }
+  }
+}

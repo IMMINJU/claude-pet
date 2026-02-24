@@ -1,0 +1,21 @@
+{
+  "name": "claude-pet",
+  "version": "0.1.0",
+  "description": "A lightweight desktop pet that reacts to Claude Code in real time",
+  "license": "MIT",
+  "author": "IMMINJU",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IMMINJU/claude-pet.git"
+  },
+  "homepage": "https://github.com/IMMINJU/claude-pet",
+  "keywords": ["tauri", "desktop-pet", "claude-code"],
+  "scripts": {
+    "tauri": "tauri",
+    "dev": "tauri dev",
+    "build": "tauri build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

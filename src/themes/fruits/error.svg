@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Tomato body -->
+  <circle cx="40" cy="46" r="24" fill="#e74c3c"/>
+  <defs>
+    <radialGradient id="tomatoShine" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="40" cy="46" r="24" fill="url(#tomatoShine)"/>
+  <!-- Stem/Leaves -->
+  <rect x="38" y="19" width="4" height="5" rx="2" fill="#6d4c1d"/>
+  <ellipse cx="33" cy="24" rx="6" ry="3" fill="#27ae60" transform="rotate(-20 33 24)"/>
+  <ellipse cx="47" cy="24" rx="6" ry="3" fill="#27ae60" transform="rotate(20 47 24)"/>
+  <ellipse cx="40" cy="23" rx="5" ry="3" fill="#2ecc71"/>
+  <!-- X eyes -->
+  <line x1="28" y1="40" x2="36" y2="48" stroke="#2d3436" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="36" y1="40" x2="28" y2="48" stroke="#2d3436" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="44" y1="40" x2="52" y2="48" stroke="#2d3436" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="52" y1="40" x2="44" y2="48" stroke="#2d3436" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Mouth (wavy distress) -->
+  <path d="M32 56 Q36 53 40 56 Q44 59 48 56" stroke="#2d3436" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>

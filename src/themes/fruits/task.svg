@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Pineapple body -->
+  <ellipse cx="40" cy="50" rx="20" ry="24" fill="#f39c12"/>
+  <!-- Diamond pattern -->
+  <line x1="25" y1="38" x2="55" y2="62" stroke="#e67e22" stroke-width="1" opacity="0.5"/>
+  <line x1="25" y1="50" x2="55" y2="50" stroke="#e67e22" stroke-width="1" opacity="0.5"/>
+  <line x1="25" y1="62" x2="55" y2="38" stroke="#e67e22" stroke-width="1" opacity="0.5"/>
+  <line x1="32" y1="30" x2="32" y2="70" stroke="#e67e22" stroke-width="1" opacity="0.5"/>
+  <line x1="48" y1="30" x2="48" y2="70" stroke="#e67e22" stroke-width="1" opacity="0.5"/>
+  <!-- Crown leaves -->
+  <ellipse cx="32" cy="20" rx="4" ry="10" fill="#27ae60" transform="rotate(-15 32 20)"/>
+  <ellipse cx="40" cy="18" rx="4" ry="11" fill="#2ecc71"/>
+  <ellipse cx="48" cy="20" rx="4" ry="10" fill="#27ae60" transform="rotate(15 48 20)"/>
+  <ellipse cx="36" cy="22" rx="3" ry="8" fill="#2ecc71" transform="rotate(-8 36 22)"/>
+  <ellipse cx="44" cy="22" rx="3" ry="8" fill="#2ecc71" transform="rotate(8 44 22)"/>
+  <!-- Eyes (determined) -->
+  <ellipse cx="33" cy="46" rx="3" ry="3" fill="white"/>
+  <ellipse cx="34" cy="46" rx="1.5" ry="2" fill="#2d3436"/>
+  <ellipse cx="47" cy="46" rx="3" ry="3" fill="white"/>
+  <ellipse cx="48" cy="46" rx="1.5" ry="2" fill="#2d3436"/>
+  <!-- Mouth (determined grin) -->
+  <path d="M35 54 Q40 58 45 54" stroke="#2d3436" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>

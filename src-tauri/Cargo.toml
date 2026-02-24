@@ -1,0 +1,20 @@
+[package]
+name = "claude-pet"
+version = "0.1.0"
+edition = "2021"
+description = "A lightweight desktop pet that reacts to Claude Code in real time"
+license = "MIT"
+authors = ["IMMINJU"]
+repository = "https://github.com/IMMINJU/claude-pet"
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-process = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["net", "io-util", "rt", "macros"] }
+dirs = "6"
+base64 = "0.22"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }

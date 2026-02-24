@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicedozie4u/tauri-schema/v2/schema.json",
+  "productName": "Claude Pet",
+  "version": "0.1.0",
+  "identifier": "com.claude.pet",
+  "build": {
+    "frontendDist": "../src"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "pet",
+        "title": "Claude Pet",
+        "width": 280,
+        "height": 120,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "resizable": false,
+        "x": 1600,
+        "y": 900
+      }
+    ]
+  },
+  "bundle": {
+    "resources": {
+      "../src/themes/": "themes/"
+    }
+  },
+  "plugins": {
+    "process": {}
+  }
+}
