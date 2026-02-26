@@ -6,6 +6,8 @@ mod hook_setup;
 mod server;
 mod themes;
 
+use tauri::Manager;
+
 fn main() {
     // --hook mode: lightweight stdin→TCP sender for Claude Code hooks
     if std::env::args().any(|a| a == "--hook") {
@@ -15,6 +17,12 @@ fn main() {
 
     // Normal mode: run the GUI app
     tauri::Builder::default()
+        .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| {
+            // When a second instance is launched, focus the existing window
+            if let Some(w) = app.get_webview_window("pet") {
+                let _ = w.set_focus();
+            }
+        }))
         .plugin(tauri_plugin_process::init())
         .invoke_handler(tauri::generate_handler![
             themes::list_themes,
