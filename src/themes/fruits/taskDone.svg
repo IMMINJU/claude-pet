@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Mango body -->
+  <ellipse cx="40" cy="44" rx="24" ry="22" fill="#f39c12" transform="rotate(-10 40 44)"/>
+  <defs>
+    <radialGradient id="mangoShine" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="mangoBlush" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#e74c3c" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#e74c3c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="40" cy="44" rx="24" ry="22" fill="url(#mangoShine)" transform="rotate(-10 40 44)"/>
+  <!-- Red blush on top -->
+  <ellipse cx="30" cy="34" rx="12" ry="10" fill="url(#mangoBlush)" transform="rotate(-10 30 34)"/>
+  <!-- Stem -->
+  <path d="M52 24 Q54 20 56 18" stroke="#6d4c1d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Happy eyes (^ ^) -->
+  <path d="M28 40 Q32 35 36 40" stroke="#2d3436" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M44 40 Q48 35 52 40" stroke="#2d3436" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Big happy mouth -->
+  <path d="M32 48 Q40 56 48 48" stroke="#2d3436" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <circle cx="26" cy="48" r="3.5" fill="#e67e22" opacity="0.4"/>
+  <circle cx="54" cy="48" r="3.5" fill="#e67e22" opacity="0.4"/>
+  <!-- Celebration sparkles -->
+  <line x1="16" y1="20" x2="14" y2="14" stroke="#f1c40f" stroke-width="2" stroke-linecap="round"/>
+  <line x1="64" y1="20" x2="66" y2="14" stroke="#f1c40f" stroke-width="2" stroke-linecap="round"/>
+  <line x1="10" y1="28" x2="6" y2="26" stroke="#f1c40f" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="70" y1="28" x2="74" y2="26" stroke="#f1c40f" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="20" cy="14" r="2" fill="#e74c3c" opacity="0.6"/>
+  <circle cx="60" cy="12" r="2" fill="#27ae60" opacity="0.6"/>
+  <circle cx="40" cy="10" r="1.5" fill="#3498db" opacity="0.6"/>
+</svg>

@@ -18,6 +18,10 @@
     "success":      { "src": "success.svg" },
     "error":        { "src": "error.svg" },
     "notification": { "src": "notification.svg" },
-    "stop":         { "src": "stop.svg" }
+    "stop":         { "src": "stop.svg" },
+    "sessionStart": { "src": "sessionStart.svg" },
+    "sessionEnd":   { "src": "sessionEnd.svg" },
+    "subagent":     { "src": "subagent.svg" },
+    "taskDone":     { "src": "taskDone.svg" }
   }
 }

@@ -275,3 +275,32 @@ html, body {
   0%, 100% { transform: scale(1); filter: brightness(1); }
   50% { transform: scale(1.05); filter: brightness(1.2); }
 }
+
+/* SessionStart: wave in */
+.state-session-start {
+  animation: waveIn 0.8s ease-out forwards;
+}
+@keyframes waveIn {
+  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* SessionEnd: fade out */
+.state-session-end {
+  animation: fadeOut 1.5s ease-in forwards;
+}
+@keyframes fadeOut {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.3; }
+}
+
+/* TaskCompleted: celebrate */
+.state-task-done {
+  animation: celebrate 0.6s ease-out 2;
+}
+@keyframes celebrate {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.2) rotate(-10deg); }
+  75% { transform: scale(1.2) rotate(10deg); }
+}

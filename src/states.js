@@ -14,13 +14,17 @@ export const TOOL_STATES = {
   NotebookEdit: { stateId: "write",   emoji: "📓", animClass: "state-write",   bubbleKey: "notebook",  statusKey: "statusNotebook" },
 };
 
-export const STATE_SUCCESS      = { stateId: "success",      emoji: "✅", animClass: "state-success",      bubbleKey: "success",      statusKey: "statusDone" };
-export const STATE_ERROR        = { stateId: "error",        emoji: "😰", animClass: "state-error",        bubbleKey: "error",        statusKey: "statusError" };
-export const STATE_NOTIFICATION = { stateId: "notification", emoji: "🙋", animClass: "state-notification", bubbleKey: "notification", statusKey: "statusNotification" };
-export const STATE_STOP         = { stateId: "stop",         emoji: "😴", animClass: "state-stop",         bubbleKey: "stopped",      statusKey: "statusStopped" };
-export const STATE_IDLE         = { stateId: "idle",         emoji: "🤖", animClass: "state-idle",         bubbleKey: "idle",         statusKey: "statusIdle" };
+export const STATE_SUCCESS       = { stateId: "success",      emoji: "✅", animClass: "state-success",       bubbleKey: "success",      statusKey: "statusDone" };
+export const STATE_ERROR         = { stateId: "error",        emoji: "😰", animClass: "state-error",         bubbleKey: "error",        statusKey: "statusError" };
+export const STATE_NOTIFICATION  = { stateId: "notification", emoji: "🙋", animClass: "state-notification",  bubbleKey: "notification", statusKey: "statusNotification" };
+export const STATE_STOP          = { stateId: "stop",         emoji: "😴", animClass: "state-stop",          bubbleKey: "stopped",      statusKey: "statusStopped" };
+export const STATE_IDLE          = { stateId: "idle",         emoji: "🤖", animClass: "state-idle",          bubbleKey: "idle",         statusKey: "statusIdle" };
+export const STATE_SESSION_START = { stateId: "sessionStart", emoji: "👋", animClass: "state-session-start", bubbleKey: "sessionStart", statusKey: "statusSessionStart" };
+export const STATE_SESSION_END   = { stateId: "sessionEnd",   emoji: "👋", animClass: "state-session-end",   bubbleKey: "sessionEnd",   statusKey: "statusSessionEnd" };
+export const STATE_SUBAGENT      = { stateId: "subagent",     emoji: "🔀", animClass: "state-task",          bubbleKey: "subagent",     statusKey: "statusSubagent" };
+export const STATE_TASK_DONE     = { stateId: "taskDone",     emoji: "🎉", animClass: "state-task-done",     bubbleKey: "taskDone",     statusKey: "statusTaskDone" };
 
-export const TRANSIENT_DURATION = { success: 1500, error: 3000, stop: 5000 };
+export const TRANSIENT_DURATION = { success: 1500, error: 3000, stop: 5000, sessionStart: 3000, sessionEnd: 5000, taskDone: 3000 };
 export const SESSION_TIMEOUT = 60000;
 export const LABEL_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -61,6 +65,12 @@ export function stateForEvent(event) {
   }
 
   if (hookEvent === "Stop") return STATE_STOP;
+  if (hookEvent === "PostToolUseFailure") return STATE_ERROR;
+  if (hookEvent === "SessionStart") return STATE_SESSION_START;
+  if (hookEvent === "SessionEnd") return STATE_SESSION_END;
+  if (hookEvent === "SubagentStart") return STATE_SUBAGENT;
+  if (hookEvent === "SubagentStop") return STATE_SUCCESS;
+  if (hookEvent === "TaskCompleted") return STATE_TASK_DONE;
 
   return STATE_IDLE;
 }

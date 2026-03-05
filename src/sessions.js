@@ -1,6 +1,6 @@
 import { t } from "./i18n.js";
 import {
-  STATE_IDLE, STATE_ERROR, STATE_SUCCESS,
+  STATE_IDLE, STATE_ERROR, STATE_SUCCESS, STATE_SESSION_END,
   TRANSIENT_DURATION, SESSION_TIMEOUT, LABEL_CHARS,
   stateForEvent,
 } from "./states.js";
@@ -58,13 +58,14 @@ export function handleEvent(event) {
   const hookEvent = event.hook_event_name || "";
   const newState = stateForEvent(event);
 
-  // Quiet mode: only react to Stop, Notification, and errors
+  // Quiet mode: only react to Stop, Notification, errors, SessionEnd, PostToolUseFailure, TaskCompleted
   if (quietMode && hookEvent === "PreToolUse") return;
   if (quietMode && hookEvent === "PostToolUse") {
     const resp = event.tool_response;
     const isError = resp && typeof resp === "object" && resp.success === false;
     if (!isError) return;
   }
+  if (quietMode && (hookEvent === "SessionStart" || hookEvent === "SubagentStart" || hookEvent === "SubagentStop")) return;
 
   const session = getOrCreateSession(sessionId);
   session.state = newState;
@@ -84,6 +85,20 @@ export function handleEvent(event) {
     transientTimers[sessionId] = setTimeout(() => returnToIdle(sessionId), delay);
   } else if (hookEvent === "Stop") {
     transientTimers[sessionId] = setTimeout(() => returnToIdle(sessionId), TRANSIENT_DURATION.stop);
+  } else if (hookEvent === "PostToolUseFailure") {
+    transientTimers[sessionId] = setTimeout(() => returnToIdle(sessionId), TRANSIENT_DURATION.error);
+  } else if (hookEvent === "SessionStart") {
+    transientTimers[sessionId] = setTimeout(() => returnToIdle(sessionId), TRANSIENT_DURATION.sessionStart);
+  } else if (hookEvent === "SessionEnd") {
+    transientTimers[sessionId] = setTimeout(() => {
+      delete sessions[sessionId];
+      delete transientTimers[sessionId];
+      refreshDisplay();
+    }, TRANSIENT_DURATION.sessionEnd);
+  } else if (hookEvent === "SubagentStop") {
+    transientTimers[sessionId] = setTimeout(() => returnToIdle(sessionId), TRANSIENT_DURATION.success);
+  } else if (hookEvent === "TaskCompleted") {
+    transientTimers[sessionId] = setTimeout(() => returnToIdle(sessionId), TRANSIENT_DURATION.taskDone);
   }
 
   refreshDisplay();

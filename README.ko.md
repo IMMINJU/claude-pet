@@ -17,25 +17,15 @@
 
 ## 왜 만들었나요?
 
-Claude Code가 돌아가는 동안, 터미널에는 텍스트만 줄줄이 흘러갑니다. Claude Pet은 **한눈에 볼 수 있는 항상-위 위젯**으로 Claude가 지금 뭘 하고 있는지 보여줍니다 — 창을 전환하지 않아도 됩니다.
+회사에서 Claude Code를 여러 세션 돌리다 보니, 어떤 세션이 입력을 기다리는지 놓치는 일이 잦았습니다. 사무실이라 소리도 못 쓰고요. 그래서 각 세션이 뭘 하고 있는지 캐릭터 애니메이션으로 보여주는 작은 위젯을 만들었습니다. 상태를 이모지로 표시하다 보니, 성공하면 웃고 에러 나면 당황하고 대기 중엔 졸고 — 어느새 상태 표시기가 아니라 살아있는 캐릭터처럼 느껴졌습니다. 그래서 그냥 "펫"이라고 부르기로 했습니다.
 
 ## 뭘 하는 앱인가요?
 
 Claude Code가 지금 뭘 하고 있는지 바탕화면 위에 보여줍니다. 파일 읽기, 코드 작성, 명령 실행, 검색 등 각 작업마다 다른 이모지와 애니메이션이 나타납니다.
 
-| 이벤트 | 이모지 | 애니메이션 |
-|--------|--------|-----------|
-| 파일 읽기 | 📖 | 좌우 흔들기 |
-| 코드 수정/쓰기 | ✍️ | 끄덕임 |
-| 명령 실행 | ⚡ | 번쩍 |
-| 검색 | 🔍 | 좌우 이동 |
-| 에이전트 | 🤖 | 회전 |
-| 웹 | 🌐 | 빛남 |
-| 알림 | 🙋 | 점프 |
-| 작업 끝 | 😴 | 느린 맥박 |
-| 대기 | 🤖 | 둥실둥실 |
+예를 들면: 📖 파일 읽기, ✍️ 코드 작성, ⚡ 명령 실행, 🔍 검색, 😰 에러, 🙋 입력 대기 — 총 17가지 상태마다 다른 애니메이션이 나옵니다.
 
-**멀티세션**: Claude Code를 여러 개 실행하면 이모지가 나란히 표시됩니다 (📖A ⚡B 🔍C).
+세션을 여러 개 실행하면 나란히 표시됩니다 (📖A ⚡B 🔍C).
 
 ## 동작 원리
 
@@ -43,7 +33,7 @@ Claude Code가 지금 뭘 하고 있는지 바탕화면 위에 보여줍니다. 
 Claude Code hooks → claude-pet --hook → TCP 소켓 → Tauri (Rust) → WebView UI
 ```
 
-1. Claude Code가 훅 이벤트를 발생시킴 (PreToolUse, PostToolUse, Notification, Stop)
+1. Claude Code가 훅 이벤트를 발생시킴 (PreToolUse, PostToolUse, Notification, Stop, SessionStart/End 등)
 2. 내장 훅 전송기(`claude-pet --hook`)가 stdin에서 JSON을 읽어 `127.0.0.1:19876`으로 전송
 3. Rust 백엔드가 JSON을 받아 프론트엔드로 emit
 4. 프론트엔드가 이모지, 애니메이션, 말풍선 업데이트
@@ -102,17 +92,9 @@ npm run build
 
 ## 특징
 
-- **가벼움** — ~8 MB 단일 바이너리, 런타임 의존성 없음
-- **투명 & 프레임리스** — 항상 위에 떠있는 위젯
-- **픽셀 폰트** — [NeoDungGeunMo](https://github.com/neodgm/neodgm)로 레트로 감성
-- **테마** — 6개 내장 테마 (Default, Cat, Space, Ocean, Garden, Fruits) + 커스텀 색상/폰트
-- **다국어** — 영어/한국어 기본 제공, 쉽게 확장 가능
-- **집중 모드** — 일반 도구 호출은 숨기고 완료/에러/알림에만 반응
-- **멀티세션** — 여러 Claude Code 인스턴스 동시 추적
-- **10가지 애니메이션** — 도구 종류별 CSS 애니메이션
-- **크로스 플랫폼** — Windows, macOS, Linux 빌드 가능
+~8 MB 단일 바이너리, 런타임 의존성 없음. 투명하고 프레임 없는 항상-위 위젯. 여러 Claude Code 세션을 동시에 추적. 내장 테마 3개 (Default, Cat, Fruits) + 직접 만들기 가능. 집중 모드로 완료/에러/알림만 받기. 영어/한국어 UI, 언어 추가도 쉬움.
 
-> **참고**: 현재 Windows 11에서만 테스트되었습니다. macOS/Linux 테스트 및 피드백을 환영합니다.
+> 현재 Windows 11에서만 테스트했습니다. macOS/Linux 피드백 환영합니다.
 
 ## 테마
 
@@ -122,9 +104,6 @@ npm run build
 |------|------|------|------|---------|
 | Default | 🤖 | ✅ | 😰 | 오렌지/브라운 |
 | Cat | 🐱 | 😻 | 🙀 | 핑크/퍼플 |
-| Space | 🚀 | ⭐ | ☄️ | 네이비/시안 |
-| Ocean | 🐙 | 🐚 | 🦀 | 딥블루/민트 |
-| Garden | 🌱 | 🌸 | 🥀 | 다크그린/라임 |
 | Fruits | 🍎 | 🍉 | 🍅 | 레드/그린 (이미지) |
 
 ### 커스텀 테마
@@ -158,43 +137,6 @@ npm run build
 ```
 
 이미지 테마는 `"type": "image"`에 `"emoji"` 대신 `"src": "filename.gif"`를 사용합니다. 커스텀 폰트도 지원됩니다. 자세한 내용은 [CONTRIBUTING.md](./CONTRIBUTING.md)를 참고하세요.
-
-## 프로젝트 구조
-
-```
-claude-pet/
-├── src/                        # 프론트엔드 (HTML/CSS/JS)
-│   ├── index.html              # 위젯 레이아웃
-│   ├── main.js                 # 초기화 & 컨텍스트 메뉴
-│   ├── sessions.js             # 세션 관리 & 디스플레이
-│   ├── states.js               # 도구 → 상태 매핑
-│   ├── themes.js               # 테마 시스템 (색상, 폰트, 이미지)
-│   ├── i18n.js                 # 다국어 처리
-│   ├── styles.css              # 애니메이션 & 테마 (CSS 변수)
-│   ├── locales/                # 번역 파일
-│   │   ├── index.json          # 사용 가능한 언어 목록
-│   │   ├── en.json
-│   │   └── ko.json
-│   ├── themes/                 # 내장 테마
-│   │   ├── default/config.json
-│   │   ├── cat/config.json
-│   │   ├── space/config.json
-│   │   ├── ocean/config.json
-│   │   ├── garden/config.json
-│   │   └── fruits/             # 이미지 테마 (SVG)
-│   └── fonts/neodgm.ttf        # 픽셀 폰트
-├── src-tauri/
-│   ├── src/
-│   │   ├── main.rs             # 진입점 & Tauri 빌더
-│   │   ├── hook_sender.rs      # stdin → TCP 전송 (--hook 모드)
-│   │   ├── hook_setup.rs       # Claude Code 훅 자동 등록
-│   │   ├── server.rs           # TCP 리스너 → Tauri 이벤트 전달
-│   │   └── themes.rs           # 테마 탐색 & 이미지 로딩
-│   ├── tauri.conf.json
-│   ├── Cargo.toml
-│   └── capabilities/
-└── package.json
-```
 
 ## 개발
 
@@ -247,16 +189,13 @@ rm -rf ~/.claude-pet
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\claude-pet"
 ```
 
-그다음 `~/.claude/settings.json`에서 `claude-pet`이 포함된 훅 항목을 삭제하세요 (`hooks.PreToolUse`, `hooks.PostToolUse`, `hooks.Notification`, `hooks.Stop`).
+그다음 `~/.claude/settings.json`에서 `claude-pet`이 포함된 훅 항목을 삭제하세요 (`PreToolUse`, `PostToolUse`, `PostToolUseFailure`, `Notification`, `Stop`, `SessionStart`, `SessionEnd`, `SubagentStart`, `SubagentStop`, `TaskCompleted`).
 
 ## 기여
 
 기여를 환영합니다! 자세한 가이드는 [CONTRIBUTING.md](./CONTRIBUTING.md)를 참고하세요.
 
-**쉬운 첫 기여:**
-- 🎨 [새 테마 만들기](./CONTRIBUTING.md#creating-a-theme) — JSON + 이미지만 있으면 됩니다
-- 🌐 [언어 추가](./CONTRIBUTING.md#adding-a-language) — JSON 파일 하나 번역
-- 📖 [README 번역](./CONTRIBUTING.md#adding-a-readme-translation) — 다른 사람들이 모국어로 읽을 수 있게
+시작하기 쉬운 것들: [테마 만들기](./CONTRIBUTING.md#creating-a-theme) (JSON + 이미지), [언어 추가](./CONTRIBUTING.md#adding-a-language) (JSON 파일 하나), [README 번역](./CONTRIBUTING.md#adding-a-readme-translation).
 
 ## 라이선스
 

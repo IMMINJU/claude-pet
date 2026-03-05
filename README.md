@@ -17,25 +17,15 @@ Built with [Tauri 2](https://tauri.app/) — the final binary is ~8 MB.
 
 ## Why?
 
-When Claude Code is working, all you see is a wall of text scrolling by. Claude Pet gives you a **glanceable, always-on-top widget** that shows what Claude is doing right now — so you can keep working (or keep watching) without switching windows.
+I run multiple Claude Code sessions at work and kept losing track of which one needs my input. Can't use sound in the office, so I built a small always-on-top widget that shows what each session is doing through an animated character. Once I mapped states to emojis — smiling on success, panicking on errors, dozing when idle — it stopped feeling like a status indicator and started feeling like something alive. So I just called it a "pet."
 
 ## What It Does
 
 Claude Pet sits on your desktop and shows what Claude Code is doing — reading files, writing code, running commands, searching, and more. Each action triggers a different emoji and animation.
 
-| Event | Emoji | Animation |
-|-------|-------|-----------|
-| Read | 📖 | Gentle sway |
-| Edit / Write | ✍️ | Nodding |
-| Bash | ⚡ | Flash pulse |
-| Grep / Glob | 🔍 | Side-to-side |
-| Task (Agent) | 🤖 | Spin |
-| Web | 🌐 | Glow pulse |
-| Notification | 🙋 | Bounce |
-| Stop | 😴 | Slow pulse |
-| Idle | 🤖 | Float |
+A few examples: 📖 reading files, ✍️ writing code, ⚡ running commands, 🔍 searching, 😰 errors, 🙋 waiting for input — 17 states in total, each with its own animation.
 
-**Multi-session**: When you run multiple Claude Code sessions, the pet shows each one side by side (📖A ⚡B 🔍C).
+When you run multiple sessions, they show up side by side (📖A ⚡B 🔍C).
 
 ## How It Works
 
@@ -43,7 +33,7 @@ Claude Pet sits on your desktop and shows what Claude Code is doing — reading 
 Claude Code hooks → claude-pet --hook → TCP socket → Tauri (Rust) → WebView UI
 ```
 
-1. Claude Code fires hook events (PreToolUse, PostToolUse, Notification, Stop)
+1. Claude Code fires hook events (PreToolUse, PostToolUse, Notification, Stop, SessionStart/End, etc.)
 2. The built-in hook sender (`claude-pet --hook`) reads JSON from stdin and sends it to `127.0.0.1:19876`
 3. The Rust backend receives the JSON and emits it to the frontend
 4. The frontend updates the emoji, animation, and speech bubble
@@ -102,17 +92,9 @@ Hooks are registered automatically when the app starts — no manual configurati
 
 ## Features
 
-- **Tiny** — ~8 MB standalone binary, no runtime dependencies
-- **Transparent & frameless** — always-on-top floating widget
-- **Pixel font** — [NeoDungGeunMo](https://github.com/neodgm/neodgm) for a retro look
-- **Themes** — 6 built-in themes (Default, Cat, Space, Ocean, Garden, Fruits) with customizable colors and fonts
-- **Multilingual** — English and Korean out of the box, easily extensible
-- **Focus Mode** — hides routine tool calls, only reacts to completion/errors/notifications
-- **Multi-session** — tracks multiple Claude Code instances simultaneously
-- **10 animations** — each tool type gets its own CSS animation
-- **Cross-platform** — builds on Windows, macOS, and Linux
+~8 MB single binary, no runtime dependencies. Transparent, frameless, always-on-top. Tracks multiple Claude Code sessions at once. 3 built-in themes (Default, Cat, Fruits) and you can make your own. Focus Mode if you only care about completions and errors. English and Korean UI, easy to add more.
 
-> **Note**: Currently tested on Windows 11. macOS/Linux testing and feedback welcome.
+> Currently tested on Windows 11. macOS/Linux testing and feedback welcome.
 
 ## Themes
 
@@ -122,9 +104,6 @@ Right-click → Theme to switch between built-in themes. Each theme has its own 
 |-------|------|---------|-------|------------|
 | Default | 🤖 | ✅ | 😰 | Orange/Brown |
 | Cat | 🐱 | 😻 | 🙀 | Pink/Purple |
-| Space | 🚀 | ⭐ | ☄️ | Navy/Cyan |
-| Ocean | 🐙 | 🐚 | 🦀 | Deep Blue/Mint |
-| Garden | 🌱 | 🌸 | 🥀 | Dark Green/Lime |
 | Fruits | 🍎 | 🍉 | 🍅 | Red/Green (image) |
 
 ### Custom Themes
@@ -158,43 +137,6 @@ Create a folder in `~/.claude-pet/themes/your-theme/` with a `config.json`:
 ```
 
 Image themes use `"type": "image"` with `"src": "filename.gif"` instead of `"emoji"`. Custom fonts are also supported. See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
-
-## Project Structure
-
-```
-claude-pet/
-├── src/                        # Frontend (HTML/CSS/JS)
-│   ├── index.html              # Widget layout
-│   ├── main.js                 # Initialization & context menu
-│   ├── sessions.js             # Session management & display
-│   ├── states.js               # Tool → state mapping
-│   ├── themes.js               # Theme system (colors, fonts, images)
-│   ├── i18n.js                 # Internationalization
-│   ├── styles.css              # Animations & theming (CSS variables)
-│   ├── locales/                # Translation files
-│   │   ├── index.json          # Available languages
-│   │   ├── en.json
-│   │   └── ko.json
-│   ├── themes/                 # Built-in themes
-│   │   ├── default/config.json
-│   │   ├── cat/config.json
-│   │   ├── space/config.json
-│   │   ├── ocean/config.json
-│   │   ├── garden/config.json
-│   │   └── fruits/             # Image theme (SVGs)
-│   └── fonts/neodgm.ttf        # Pixel font
-├── src-tauri/
-│   ├── src/
-│   │   ├── main.rs             # Entry point & Tauri builder
-│   │   ├── hook_sender.rs      # stdin → TCP sender (--hook mode)
-│   │   ├── hook_setup.rs       # Auto-register hooks in Claude Code
-│   │   ├── server.rs           # TCP listener → Tauri event emitter
-│   │   └── themes.rs           # Theme discovery & image loading
-│   ├── tauri.conf.json
-│   ├── Cargo.toml
-│   └── capabilities/
-└── package.json
-```
 
 ## Development
 
@@ -247,16 +189,13 @@ rm -rf ~/.claude-pet
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\claude-pet"
 ```
 
-Then remove the hooks from `~/.claude/settings.json` — delete the entries containing `claude-pet` under `hooks.PreToolUse`, `hooks.PostToolUse`, `hooks.Notification`, and `hooks.Stop`.
+Then remove the hooks from `~/.claude/settings.json` — delete the entries containing `claude-pet` under each hook event (`PreToolUse`, `PostToolUse`, `PostToolUseFailure`, `Notification`, `Stop`, `SessionStart`, `SessionEnd`, `SubagentStart`, `SubagentStop`, `TaskCompleted`).
 
 ## Contributing
 
 Contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
-**Easy first contributions:**
-- 🎨 [Create a new theme](./CONTRIBUTING.md#creating-a-theme) — just JSON + images
-- 🌐 [Add a language](./CONTRIBUTING.md#adding-a-language) — translate one JSON file
-- 📖 [Translate the README](./CONTRIBUTING.md#adding-a-readme-translation) — help others read in their language
+Easiest ways to start: [make a theme](./CONTRIBUTING.md#creating-a-theme) (just JSON + images), [add a language](./CONTRIBUTING.md#adding-a-language) (one JSON file), or [translate the README](./CONTRIBUTING.md#adding-a-readme-translation).
 
 ## License
 

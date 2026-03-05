@@ -19,6 +19,10 @@
     "error":        { "emoji": "🙀" },
     "notification": { "emoji": "😿" },
     "stop":         { "emoji": "😴" },
-    "unknown":      { "emoji": "🐾" }
+    "unknown":      { "emoji": "🐾" },
+    "sessionStart": { "emoji": "🐱" },
+    "sessionEnd":   { "emoji": "😿" },
+    "subagent":     { "emoji": "😸" },
+    "taskDone":     { "emoji": "😻" }
   }
 }

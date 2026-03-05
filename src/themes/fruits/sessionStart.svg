@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Strawberry body -->
+  <path d="M40 18 C25 22 18 38 22 56 Q30 70 40 72 Q50 70 58 56 C62 38 55 22 40 18Z" fill="#e74c3c"/>
+  <defs>
+    <radialGradient id="strawShine" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M40 18 C25 22 18 38 22 56 Q30 70 40 72 Q50 70 58 56 C62 38 55 22 40 18Z" fill="url(#strawShine)"/>
+  <!-- Seeds -->
+  <ellipse cx="32" cy="38" rx="1.5" ry="2" fill="#c0392b" transform="rotate(-10 32 38)"/>
+  <ellipse cx="48" cy="38" rx="1.5" ry="2" fill="#c0392b" transform="rotate(10 48 38)"/>
+  <ellipse cx="35" cy="52" rx="1.5" ry="2" fill="#c0392b"/>
+  <ellipse cx="45" cy="52" rx="1.5" ry="2" fill="#c0392b"/>
+  <ellipse cx="40" cy="62" rx="1.5" ry="2" fill="#c0392b"/>
+  <!-- Leaves -->
+  <ellipse cx="33" cy="18" rx="6" ry="4" fill="#27ae60" transform="rotate(-20 33 18)"/>
+  <ellipse cx="40" cy="16" rx="5" ry="4" fill="#2ecc71"/>
+  <ellipse cx="47" cy="18" rx="6" ry="4" fill="#27ae60" transform="rotate(20 47 18)"/>
+  <!-- Eyes (bright, awake) -->
+  <ellipse cx="33" cy="42" rx="3.5" ry="4" fill="white"/>
+  <ellipse cx="34" cy="42" rx="2" ry="2.5" fill="#2d3436"/>
+  <circle cx="35.5" cy="41" r="1" fill="white"/>
+  <ellipse cx="47" cy="42" rx="3.5" ry="4" fill="white"/>
+  <ellipse cx="48" cy="42" rx="2" ry="2.5" fill="#2d3436"/>
+  <circle cx="49.5" cy="41" r="1" fill="white"/>
+  <!-- Happy mouth -->
+  <path d="M35 50 Q40 56 45 50" stroke="#2d3436" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Sparkles (waking up) -->
+  <line x1="18" y1="28" x2="14" y2="22" stroke="#f1c40f" stroke-width="2" stroke-linecap="round"/>
+  <line x1="62" y1="28" x2="66" y2="22" stroke="#f1c40f" stroke-width="2" stroke-linecap="round"/>
+  <line x1="12" y1="34" x2="8" y2="32" stroke="#f1c40f" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="68" y1="34" x2="72" y2="32" stroke="#f1c40f" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

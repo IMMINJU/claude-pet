@@ -1,7 +1,13 @@
 use std::fs;
 use std::path::PathBuf;
 
-const HOOK_EVENTS: &[&str] = &["PreToolUse", "PostToolUse", "Notification", "Stop"];
+const HOOK_EVENTS: &[&str] = &[
+    "PreToolUse", "PostToolUse", "PostToolUseFailure",
+    "Notification", "Stop",
+    "SessionStart", "SessionEnd",
+    "SubagentStart", "SubagentStop",
+    "TaskCompleted",
+];
 
 /// Register hooks in Claude Code settings on app startup.
 pub fn setup_hooks() {
