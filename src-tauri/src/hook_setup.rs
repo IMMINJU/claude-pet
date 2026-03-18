@@ -4,7 +4,7 @@ use std::path::PathBuf;
 const HOOK_EVENTS: &[&str] = &[
     "PreToolUse", "PostToolUse", "PostToolUseFailure",
     "Notification", "Stop",
-    "SessionStart", "SessionEnd",
+    "SessionStart",
     "SubagentStart", "SubagentStop",
     "TaskCompleted",
 ];

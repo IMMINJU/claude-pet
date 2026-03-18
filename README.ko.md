@@ -189,7 +189,7 @@ rm -rf ~/.claude-pet
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\claude-pet"
 ```
 
-그다음 `~/.claude/settings.json`에서 `claude-pet`이 포함된 훅 항목을 삭제하세요 (`PreToolUse`, `PostToolUse`, `PostToolUseFailure`, `Notification`, `Stop`, `SessionStart`, `SessionEnd`, `SubagentStart`, `SubagentStop`, `TaskCompleted`).
+그다음 `~/.claude/settings.json`에서 `claude-pet`이 포함된 훅 항목을 삭제하세요 (`PreToolUse`, `PostToolUse`, `PostToolUseFailure`, `Notification`, `Stop`, `SessionStart`, `SubagentStart`, `SubagentStop`, `TaskCompleted`).
 
 ## 기여
 

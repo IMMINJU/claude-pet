@@ -189,7 +189,7 @@ rm -rf ~/.claude-pet
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\claude-pet"
 ```
 
-Then remove the hooks from `~/.claude/settings.json` — delete the entries containing `claude-pet` under each hook event (`PreToolUse`, `PostToolUse`, `PostToolUseFailure`, `Notification`, `Stop`, `SessionStart`, `SessionEnd`, `SubagentStart`, `SubagentStop`, `TaskCompleted`).
+Then remove the hooks from `~/.claude/settings.json` — delete the entries containing `claude-pet` under each hook event (`PreToolUse`, `PostToolUse`, `PostToolUseFailure`, `Notification`, `Stop`, `SessionStart`, `SubagentStart`, `SubagentStop`, `TaskCompleted`).
 
 ## Contributing
 
